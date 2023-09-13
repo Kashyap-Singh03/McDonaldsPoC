@@ -6,7 +6,8 @@ export const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: theme.colors.secondary,
-    paddingHorizontal: 10,
+    paddingTop:20,
+    width:'100%'
   },
   imgLogoStyle: {
     width: image1Width,

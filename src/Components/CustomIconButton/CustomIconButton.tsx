@@ -36,7 +36,7 @@ const CustomIconButton = ({
             ? backgroundColor
             : theme.colors.secondary,
           borderColor: borderColor ? borderColor : theme.colors.secondary,
-          width: width ? width : '35%',
+          width: width ? width : '100%',
         },
       ]}>
       <View style={style.subContainer}>

@@ -14,6 +14,8 @@ export const style = StyleSheet.create({
   subContainer: {
     flexDirection: 'row',
     alignItems: 'center',
+    paddingLeft:10,
+    paddingRight:10
   },
   iconContainer: {
     backgroundColor: theme.colors.white,
