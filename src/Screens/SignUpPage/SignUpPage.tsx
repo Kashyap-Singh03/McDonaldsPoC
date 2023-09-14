@@ -18,7 +18,8 @@ import theme from '../../Theme/theme';
 import {baseLocalEng} from './../../Localization/BaseLocalization';
 import {styles} from './style';
 
-const SignUp = () => {
+const SignUp = (props: any) => {
+  const {navigation} = props;
   const [isSwitchOn, setIsSwitchOn] = useState(false);
   const [gender, setGender] = useState('Male');
 
@@ -39,6 +40,7 @@ const SignUp = () => {
 
   const onSubmit = (values: any) => {
     console.log(JSON.stringify(values) + '\n' + gender);
+    navigation.navigate('SignIn');
   };
 
   return (
@@ -48,7 +50,7 @@ const SignUp = () => {
       keyboardShouldPersistTaps="handled"
       style={styles.container}>
       <StatusBar barStyle="dark-content" backgroundColor={theme.colors.white} />
-      <KeyboardAvoidingView>
+      <KeyboardAvoidingView style={styles.subContainer}>
         <View style={styles.imageContainer}>
           <Image
             source={require('../../Assets/mcdonaldsIcon.png')}
@@ -123,6 +125,8 @@ const SignUp = () => {
                       }
                       labelText={baseLocalEng.SignIn.password}
                       lablePlaceHolder={baseLocalEng.SignIn.passwordPlaceHolder}
+                      secureTextEntry={true}
+                      isPassword={true}
                     />
                     <LabeledInputTextField
                       value={values.confirmPassword}
@@ -136,6 +140,8 @@ const SignUp = () => {
                       }
                       labelText={baseLocalEng.SignUp.confirmPassword}
                       lablePlaceHolder={baseLocalEng.SignIn.passwordPlaceHolder}
+                      secureTextEntry={true}
+                      isPassword={true}
                     />
                     <Text style={styles.genderStyle}>
                       {baseLocalEng.SignUp.gender}
@@ -168,7 +174,10 @@ const SignUp = () => {
                 <Text style={styles.accoutExistStyle}>
                   {baseLocalEng.SignUp.accountExistMsg}
                 </Text>
-                <TouchableOpacity onPress={() => {}}>
+                <TouchableOpacity
+                  onPress={() => {
+                    navigation.navigate('SignIn');
+                  }}>
                   <Text style={styles.accoutExistBtnStyle}>
                     {baseLocalEng.SignUp.signIn}
                   </Text>

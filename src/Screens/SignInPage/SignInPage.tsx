@@ -16,8 +16,10 @@ import {UIValidationSchema} from '../../Helper/UIValidationSchema';
 import theme from '../../Theme/theme';
 import {baseLocalEng} from './../../Localization/BaseLocalization';
 import {styles} from './style';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
-const SignInPage = () => {
+const SignInPage = (props: any) => {
+  const {navigation} = props;
   const initialValues = {
     email: '',
     password: '',
@@ -26,6 +28,7 @@ const SignInPage = () => {
 
   const onSubmit = (values: any) => {
     console.log(JSON.stringify(values));
+    navigation.navigate('HomePage')
   };
 
   return (
@@ -35,7 +38,7 @@ const SignInPage = () => {
       keyboardShouldPersistTaps="handled"
       style={styles.container}>
       <StatusBar barStyle="dark-content" backgroundColor={theme.colors.white} />
-      <KeyboardAvoidingView>
+      <KeyboardAvoidingView style={styles.subContainer}>
         <View style={styles.imageContainer}>
           <Image
             source={require('../../Assets/mcdonaldsIcon.png')}
@@ -78,7 +81,6 @@ const SignInPage = () => {
                       labelText={baseLocalEng.SignIn.email}
                       lablePlaceHolder={baseLocalEng.SignIn.emailPlaceHolder}
                     />
-
                     <LabeledInputTextField
                       value={values.password}
                       errorText={errors.password}
@@ -89,6 +91,8 @@ const SignInPage = () => {
                       }
                       labelText={baseLocalEng.SignIn.password}
                       lablePlaceHolder={baseLocalEng.SignIn.passwordPlaceHolder}
+                      secureTextEntry={true}
+                      isPassword={true}
                     />
                     <View style={styles.btn}>
                       <CustomButton
@@ -104,7 +108,10 @@ const SignInPage = () => {
                 <Text style={styles.accoutExistStyle}>
                   {baseLocalEng.SignIn.noAccountMsg}
                 </Text>
-                <TouchableOpacity onPress={() => {}}>
+                <TouchableOpacity
+                  onPress={() => {
+                    navigation.navigate('SignUp');
+                  }}>
                   <Text style={styles.accoutExistBtnStyle}>
                     {baseLocalEng.SignIn.signUp}
                   </Text>

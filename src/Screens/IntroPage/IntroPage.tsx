@@ -4,7 +4,8 @@ import CustomButton from '../../Components/CustomButton/CustomButton';
 import {baseLocalEng} from './../../Localization/BaseLocalization';
 import theme from './../../Theme/theme';
 import {styles} from './style';
-const IntroPage = () => {
+const IntroPage = (props: any) => {
+  const {navigation} = props;
   return (
     <View style={styles.container}>
       <StatusBar
@@ -39,6 +40,7 @@ const IntroPage = () => {
           disabled={false}
           backgroundColor={theme.colors.primary}
           textColor={theme.colors.secondary}
+          onPress={()=>{navigation.navigate('SignIn')}}
         />
       </View>
     </View>

@@ -7,6 +7,15 @@ export const styles = StyleSheet.create({
     borderRadius: 5,
     flex: 1,
   },
+  iconContainer: {
+    padding: 8,
+  },
+  inputContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    borderBottomWidth: 1,
+    borderColor: theme.colors.black,
+  },
   errorText: {
     color: theme.colors.error,
   },
@@ -16,8 +25,6 @@ export const styles = StyleSheet.create({
   },
   textInput: {
     backgroundColor: theme.colors.white,
-    borderColor: theme.colors.black,
-    borderBottomWidth: 1,
     flex: 1,
     fontSize: theme.fonts.body1.fontSize,
     color: theme.colors.black,

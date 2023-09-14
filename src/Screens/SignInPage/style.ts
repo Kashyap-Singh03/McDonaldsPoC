@@ -4,8 +4,13 @@ import theme from '../../Theme/theme';
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    width: '85%',
-    marginTop: 20,
+    width: '100%',
+    alignSelf: 'center',
+    backgroundColor: theme.colors.white,
+  },
+  subContainer: {
+    width: '90%',
+    alignSelf: 'center',
   },
   imageContainer: {
     alignItems: 'center',
