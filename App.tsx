@@ -8,15 +8,23 @@ import CustomCartEntity from './src/Components/CustomCartEntity/CustomCartEntity
 import CustomSpecialOffer from './src/Components/CustomSpecialOffer/CustomSpecialOffer';
 import SignUpPage from './src/Screens/SignUpPage/SignUpPage';
 import SignInPage from './src/Screens/SignInPage/SignInPage';
-import HomePage from './src/Screens/HomeNavigation/HomeNavigation';
+import store, {persistor} from './src/Redux/Store';
+
 import CustomBanner from './src/Components/CustomBanner/CustomBanner';
 import {NavigationContainer} from '@react-navigation/native';
 import RootStack from './src/Navigation/RootStack';
+import {Provider} from 'react-redux';
+import {PersistGate} from 'redux-persist/integration/react';
+
 const App = () => {
   return (
-    <NavigationContainer>
-      <RootStack />
-    </NavigationContainer>
+    <Provider store={store}>
+      <PersistGate persistor={persistor}>
+        <NavigationContainer>
+          <RootStack />
+        </NavigationContainer>
+      </PersistGate>
+    </Provider>
     // <View style={style.container}>
     //   {/* <CustomIconButton
     //     text="sdfsf"
