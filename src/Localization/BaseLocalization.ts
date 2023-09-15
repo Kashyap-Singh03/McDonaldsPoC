@@ -30,4 +30,11 @@ export const baseLocalEng = {
     accountExistMsg: 'Already have an account?',
     signIn: ' Sign In',
   },
+  HomePage:{
+    search:'Search',
+    selectLocation:'Select Location',
+    category:'Kategori',
+    specialOffer:'Special Offer',
+    SpecialOfferBtn:'Lihat Semua'
+  }
 };

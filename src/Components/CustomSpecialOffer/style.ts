@@ -4,12 +4,13 @@ import theme from '../../Theme/theme';
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    width: (theme.dimensions.maxWidth) / 2,
+    width: theme.dimensions.maxWidth / 2.4,
+    height: 300,
   },
   fixedHeightContainer: {
     borderWidth: 1,
     borderRadius: 20,
-    elevation: 8,
+    elevation: 3,
     backgroundColor: theme.colors.white,
     borderColor: theme.colors.white,
     height: 250,

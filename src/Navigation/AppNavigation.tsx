@@ -85,6 +85,7 @@ const AppNavigation = () => {
     <Tab.Navigator
       //@ts-ignore
       tabBarOptions={{
+        keyboardHidesTabBar: true,
         labelStyle: {
           position: 'absolute',
           top: 0,
