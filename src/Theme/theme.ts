@@ -20,6 +20,8 @@ const theme = {
     blackOpacity5: 'rgba(0,0,0,0.7)',
     black: '#000000',
     error: '#ff0000',
+    textBoxBackground:'#f0f0f0',
+    iconColor:'#808e9b'
   },
   dimensions: {
     maxWidth: Dimensions.get('window').width,

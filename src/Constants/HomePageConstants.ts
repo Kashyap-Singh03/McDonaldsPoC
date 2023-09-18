@@ -66,9 +66,42 @@ export const SpecialOfferPageData = [
     image: require('../Assets/PaneerAloo.png'),
     price: 299,
   },
-  // {
-  //   name: 'Shared Box with Thousand island Sauce',
-  //   image: require('../Assets/special.png'),
-  //   price: 450,
-  // },
+  {
+    name: 'Shared Box with Thousand island Sauce',
+    image: require('../Assets/special.png'),
+    price: 450,
+  },
+];
+
+export const CartPageData = [
+  {
+    name: 'Big Mac Beef Rasher',
+    image: require('../Assets/itemDetails.png'),
+    price: 108,
+  },
+  {
+    name: 'Happy Meal 4 pcs McNuggets',
+    image: require('../Assets/2McChicken.png'),
+    price: 250,
+  },
+  {
+    name: 'PaNas 2 with Fries',
+    image: require('../Assets/PaneerAloo.png'),
+    price: 299,
+  },
+  {
+    name: 'Big Mac Beef Rasher',
+    image: require('../Assets/itemDetails.png'),
+    price: 108,
+  },
+  {
+    name: 'Happy Meal 4 pcs McNuggets',
+    image: require('../Assets/2McChicken.png'),
+    price: 250,
+  },
+  {
+    name: 'PaNas 2 with Fries',
+    image: require('../Assets/PaneerAloo.png'),
+    price: 299,
+  },
 ];

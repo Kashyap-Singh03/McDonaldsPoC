@@ -23,7 +23,8 @@ import {baseLocalEng} from './../../Localization/BaseLocalization';
 import theme from './../../Theme/theme';
 import {styles} from './style';
 
-const HomePage = () => {
+const HomePage = (props: any) => {
+  const {navigation} = props;
   const [activeCarouselIndex, setActiveCarouselIndex] = useState(0);
   const [filteredCategories, setFilteredCategories] = useState(Kategori);
 
@@ -126,7 +127,10 @@ const HomePage = () => {
             renderItem={({item}) => (
               <CustomCategory
                 itemImage={item.image}
-                itemTitle={item.title}></CustomCategory>
+                itemTitle={item.title}
+                onPress={() => {
+                  navigation.navigate('CategoryPage',{title:item.title});
+                }}></CustomCategory>
             )}
             horizontal
             showsHorizontalScrollIndicator={false}
@@ -137,7 +141,7 @@ const HomePage = () => {
             <Text style={styles.specialOfferTextStyle}>
               {baseLocalEng.HomePage.specialOffer}
             </Text>
-            <TouchableOpacity onPress={() => {}}>
+            <TouchableOpacity onPress={() => {navigation.navigate('SpecialOfferPage')}}>
               <Text style={{color: theme.colors.secondary}}>
                 {baseLocalEng.HomePage.SpecialOfferBtn} &gt;
               </Text>

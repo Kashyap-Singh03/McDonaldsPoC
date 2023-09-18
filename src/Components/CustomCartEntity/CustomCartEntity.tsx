@@ -28,11 +28,11 @@ const CustomCartEntity = ({
         <Text style={styles.textHeaderStyle}>{itemName}</Text>
         <View style={styles.viewSubContainer1}>
           <TouchableOpacity style={styles.counterStyle}>
-            <Icon name="minus" size={24} color={theme.colors.secondary} />
+            <Icon name="minus" size={20} color={theme.colors.secondary} />
           </TouchableOpacity>
           <Text style={styles.textSubContainer1}>3</Text>
           <TouchableOpacity style={styles.counterStyle}>
-            <Icon name="plus" size={24} color={theme.colors.secondary} />
+            <Icon name="plus" size={20} color={theme.colors.secondary} />
           </TouchableOpacity>
         </View>
       </View>

@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {FlatList, TextInput, View} from 'react-native';
+import {FlatList, Text, TextInput, View} from 'react-native';
 import {IconButton} from 'react-native-paper';
 import CustomSpecialOffer from '../../Components/CustomSpecialOffer/CustomSpecialOffer';
 import {SpecialOfferPageData} from '../../Constants/HomePageConstants';

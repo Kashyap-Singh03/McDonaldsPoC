@@ -13,6 +13,8 @@ import HomePage from '../Screens/HomePage/HomePage';
 import CartPage from '../Screens/CartPage/CartPage';
 import SpecialOfferPage from '../Screens/SpecialOfferPage/SpecialOfferPage';
 import ProfilePage from '../Screens/ProfilePage/ProfilePage';
+import CategoryPage from '../Screens/CategoryPage/CategoryPage';
+import ItemDetailsPage from '../Screens/ItemDetailsPage/ItemDetailsPage';
 import theme from './../Theme/theme';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
@@ -28,6 +30,30 @@ const HomeStackScreen = () => {
         name="HomePage"
         component={HomePage}
         options={{headerShown: false}}
+      />
+      <HomeStack.Screen
+        name="CategoryPage"
+        component={CategoryPage}
+        options={{
+          headerTitle: 'Available Items',
+          headerTitleStyle: {color: theme.colors.black},
+        }}
+      />
+      <HomeStack.Screen
+        name="ItemDetailsPage"
+        component={ItemDetailsPage}
+        options={{
+          headerTitle: 'Item Details',
+          headerTitleStyle: {color: theme.colors.black},
+        }}
+      />
+      <HomeStack.Screen
+        name="SpecialOfferPage"
+        component={SpecialOfferPage}
+        options={{
+          headerTitle: 'Special Offers',
+          headerTitleStyle: {color: theme.colors.black},
+        }}
       />
     </HomeStack.Navigator>
   );

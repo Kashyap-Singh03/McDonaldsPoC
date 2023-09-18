@@ -30,11 +30,37 @@ export const baseLocalEng = {
     accountExistMsg: 'Already have an account?',
     signIn: ' Sign In',
   },
-  HomePage:{
-    search:'Search',
-    selectLocation:'Select Location',
-    category:'Kategori',
-    specialOffer:'Special Offer',
-    SpecialOfferBtn:'Lihat Semua'
+  HomePage: {
+    search: 'Search',
+    selectLocation: 'Select Location',
+    category: 'Kategori',
+    specialOffer: 'Special Offer',
+    SpecialOfferBtn: 'Lihat Semua',
+  },
+  specialOffer: {
+    header: 'Special Offer',
+  },
+  itemDetails: {
+    description:
+      'Lebih Extra dan Lebih Nikmat dengan Beef Rasher diantara dua lapis daging sapi, saus spesial, selada, keju, acar timun, bawang yang diapit roti wijen.',
+    optionalHeader: 'Tambahkan Catatan',
+    optional: ' (Optional)',
+    textInputPlaceHolder: 'Cth. Tanpa keju dan tomat',
+    btnText: 'Masukkan Keranjang',
+  },
+  cartPage: {
+    title: 'Pesananmu',
+    totalItem: 'Total Item',
+    biayaPengiriman: 'Biaya Pengiriman',
+    totalBiaya: 'Total Biaya',
+    gratis: 'GRATIS',
+    btnText: 'Bayar',
+  },
+  profilePage:{
+    name:'Name',
+    email:'Email',
+    gender:'Gender',
+    phone:'Phone Number',
+    logout:'Logout'
   }
 };

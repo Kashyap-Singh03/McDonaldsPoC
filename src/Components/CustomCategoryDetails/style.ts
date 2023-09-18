@@ -19,8 +19,8 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
   },
   image: {
-    width: 150,
-    height: 150,
+    width: 100,
+    height: 100,
   },
   textHeaderStyle: {
     fontSize: theme.fonts.h8.fontSize,
@@ -34,26 +34,19 @@ export const styles = StyleSheet.create({
   },
   viewContainer1: {
     width: '60%',
-    paddingLeft: 30,
+    paddingLeft: 20,
   },
   viewSubContainer1: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginTop: 10,
   },
   textSubContainer1: {
     fontSize: 18,
-    marginLeft: 10,
-    marginRight: 10,
+    marginTop: 5,
     color: theme.colors.black,
   },
   viewContainer2: {
     width: '20%',
     justifyContent: 'space-between',
-  },
-  textPrice: {
-    fontSize: theme.fonts.h8.fontSize,
-    color: theme.colors.primary,
-    fontWeight: 'bold',
   },
 });
