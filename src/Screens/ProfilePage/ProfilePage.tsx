@@ -5,18 +5,15 @@ import Icon1 from 'react-native-vector-icons/MaterialCommunityIcons';
 import {baseLocalEng} from '../../Localization/BaseLocalization';
 import theme from '../../Theme/theme';
 import {style} from './style';
-
+import { useDispatch, useSelector } from 'react-redux';
 const ProfilePage = (props: any) => {
   const {navigation, route} = props;
+
+  const dispatch=useDispatch();
+  const userDetails=useSelector((state:any)=>state.reducer.currentUser)
   const [avatar, setAvatar] = useState(
     'https://cdn.pixabay.com/photo/2017/11/10/05/48/user-2935527_1280.png',
   );
-
-  const [name, setName] = useState('Kashyap');
-  const [email, setEmail] = useState('Kashyap@gmail.com');
-  const [gender, setGender] = useState('Male');
-  const [phone, setPhone] = useState('9876543210');
-
   return (
     <View style={style.mainContainer}>
       <View style={style.profileHeader}>
@@ -30,7 +27,7 @@ const ProfilePage = (props: any) => {
               <Text style={style.profileText}>
                 {baseLocalEng.profilePage.name}
               </Text>
-              <Text style={style.textColorStyle}>{name}</Text>
+              <Text style={style.textColorStyle}>{userDetails.name}</Text>
             </View>
           </View>
         </View>
@@ -41,7 +38,7 @@ const ProfilePage = (props: any) => {
             <Text style={style.profileText}>
               {baseLocalEng.profilePage.email}
             </Text>
-            <Text style={style.textColorStyle}>{email}</Text>
+            <Text style={style.textColorStyle}>{userDetails.email}</Text>
           </View>
         </View>
 
@@ -51,7 +48,7 @@ const ProfilePage = (props: any) => {
             <Text style={style.profileText}>
               {baseLocalEng.profilePage.gender}
             </Text>
-            <Text style={style.textColorStyle}>{gender}</Text>
+            <Text style={style.textColorStyle}>{userDetails.gender}</Text>
           </View>
         </View>
 
@@ -61,7 +58,7 @@ const ProfilePage = (props: any) => {
             <Text style={style.profileText}>
               {baseLocalEng.profilePage.phone}
             </Text>
-            <Text style={style.textColorStyle}>{phone}</Text>
+            <Text style={style.textColorStyle}>{userDetails.phoneNumber}</Text>
           </View>
         </View>
 

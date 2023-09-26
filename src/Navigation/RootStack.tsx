@@ -11,11 +11,10 @@ import AppNavigation from './AppNavigation';
 
 const RootStack = () => {
   LogBox.ignoreAllLogs();
-//   const isLogin = useSelector((state: any) => state.isLogin);
+  const isLogin = useSelector((state: any) => state.reducer.isLogin);
   return (
     <NavigationContainer independent={true}>
-      <AppNavigation /> 
-       {/* <AuthNavigation /> */}
+      {isLogin ? <AppNavigation /> : <AuthNavigation />}
     </NavigationContainer>
   );
 };

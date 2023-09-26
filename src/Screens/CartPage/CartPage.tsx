@@ -1,11 +1,15 @@
+//@ts-nocheck
 import React from 'react';
 import {ScrollView, Text, View} from 'react-native';
+import {useSelector} from 'react-redux';
 import CustomButton from '../../Components/CustomButton/CustomButton';
 import CustomCartEntity from '../../Components/CustomCartEntity/CustomCartEntity';
 import {CartPageData} from '../../Constants/HomePageConstants';
 import {baseLocalEng} from './../../Localization/BaseLocalization';
 import {styles} from './style';
 const CartPage = () => {
+  const cartItems = useSelector((state: any) => state.reducer.cartItems);
+  const userId = useSelector((state: any) => state.reducer.currentUser.id);
   return (
     <View style={styles.container}>
       <View style={styles.topContainer}>
@@ -14,15 +18,21 @@ const CartPage = () => {
         </Text>
       </View>
       <ScrollView style={styles.scrollViewStyle}>
-        {CartPageData.map(item => (
-          <View style={styles.viewStyle}>
-            <CustomCartEntity
-              itemImage={item.image}
-              itemName={item.name}
-              itemPrice={item.price}
-            />
-          </View>
-        ))}
+        {cartItems.map(item =>
+          item.userId == userId ? (
+            <>
+              <View style={styles.viewStyle}>
+                <CustomCartEntity
+                  itemImage={item.image}
+                  itemName={item.title}
+                  itemPrice={item.price}
+                  itemQty={item.qty}
+                  itemId={item.id}
+                />
+              </View>
+            </>
+          ) : null,
+        )}
         <View style={styles.totalItemViewStyle}>
           <View>
             <Text style={styles.totalItemTextStyle}>

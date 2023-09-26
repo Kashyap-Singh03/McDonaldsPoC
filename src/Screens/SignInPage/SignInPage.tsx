@@ -1,6 +1,7 @@
 import {Formik} from 'formik';
-import React, {useRef} from 'react';
+import React, {useEffect, useRef} from 'react';
 import {
+  Alert,
   Image,
   KeyboardAvoidingView,
   SafeAreaView,
@@ -10,16 +11,20 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
+import {useDispatch, useSelector} from 'react-redux';
 import CustomButton from '../../Components/CustomButton/CustomButton';
 import LabeledInputTextField from '../../Components/LabeledInputTextField/LabeledInputTextField';
 import {UIValidationSchema} from '../../Helper/UIValidationSchema';
 import theme from '../../Theme/theme';
 import {baseLocalEng} from './../../Localization/BaseLocalization';
+import {login_request} from './../../Redux/Action';
 import {styles} from './style';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const SignInPage = (props: any) => {
   const {navigation} = props;
+  const dispatch = useDispatch();
+  const users = useSelector((state: any) => state.reducer.users);
+  const isLogin = useSelector((state: any) => state.reducer.isLogin);
   const initialValues = {
     email: '',
     password: '',
@@ -27,8 +32,17 @@ const SignInPage = (props: any) => {
   const formikRef = useRef();
 
   const onSubmit = (values: any) => {
-    console.log(JSON.stringify(values));
-    navigation.navigate('HomePage')
+    const user = users.find((user: any) => user.email === values.email);
+    const userExist = users.some((user: any) => user.email === values.email);
+    if (!userExist) {
+      Alert.alert('Validation Error', 'Email not found');
+    } else if (userExist && user.password !== values.password) {
+      Alert.alert('Validation Error', 'Incorrect Password');
+    } else if (userExist && user.password === values.password) {
+      dispatch(login_request(user));
+    } else {
+      Alert.alert('Check Email and Password');
+    }
   };
 
   return (
@@ -126,3 +140,6 @@ const SignInPage = (props: any) => {
 };
 
 export default SignInPage;
+function dispatch(arg0: {type: string; payload: any}) {
+  throw new Error('Function not implemented.');
+}
