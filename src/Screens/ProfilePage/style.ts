@@ -5,7 +5,7 @@ export const style = StyleSheet.create({
   mainContainer: {
     flex: 1,
     justifyContent: 'center',
-    backgroundColor:theme.colors.white
+    backgroundColor: theme.colors.white,
   },
   profileHeader: {
     justifyContent: 'center',

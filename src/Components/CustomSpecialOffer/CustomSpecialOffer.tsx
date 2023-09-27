@@ -7,12 +7,14 @@ type CustomSpecialOfferProps = {
   itemImage: any;
   itemName: string;
   itemPrice: number;
+  onPress?: () => void;
 };
 
 const CustomSpecialOffer = ({
   itemImage,
   itemName,
   itemPrice,
+  onPress,
 }: CustomSpecialOfferProps) => {
   return (
     <View style={styles.container}>
@@ -24,7 +26,12 @@ const CustomSpecialOffer = ({
         </View>
         <View style={styles.buttonContainer}>
           <View style={styles.buttonWrapper}>
-            <CustomIconButton iconName="plus" text="Tambah" disabled={false} />
+            <CustomIconButton
+              iconName="plus"
+              text="Tambah"
+              disabled={false}
+              onPress={onPress}
+            />
           </View>
         </View>
       </View>

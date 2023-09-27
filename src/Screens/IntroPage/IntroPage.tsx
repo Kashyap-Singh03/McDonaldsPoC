@@ -40,7 +40,9 @@ const IntroPage = (props: any) => {
           disabled={false}
           backgroundColor={theme.colors.primary}
           textColor={theme.colors.secondary}
-          onPress={()=>{navigation.navigate('SignIn')}}
+          onPress={() => {
+            navigation.navigate('SignIn');
+          }}
         />
       </View>
     </View>

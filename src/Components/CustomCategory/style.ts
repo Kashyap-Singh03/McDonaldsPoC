@@ -4,7 +4,7 @@ export const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
     marginRight: 10,
-    backgroundColor: '#f0f0f0', // Light gray
+    backgroundColor: '#f0f0f0',
     padding: 10,
     borderRadius: 8,
     width: 100,

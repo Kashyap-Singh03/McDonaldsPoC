@@ -1,14 +1,14 @@
 import React from 'react';
 import {Image, Text, TouchableOpacity, View} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import theme from '../../Theme/theme';
-import {styles} from './style';
 import {useDispatch, useSelector} from 'react-redux';
+import theme from '../../Theme/theme';
 import {
   add_to_cart_request,
   delete_cart_item_request,
   remove_from_cart_request,
 } from './../../Redux/Action';
+import {styles} from './style';
 
 type CustomCartEntityProps = {
   itemImage: any;

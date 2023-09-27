@@ -12,7 +12,7 @@ export const styles = StyleSheet.create({
     padding: 16,
   },
   listItemTextStyle: {
-    color: theme.colors.black
+    color: theme.colors.black,
   },
   carouselStyle: {
     width: 300,
@@ -82,7 +82,7 @@ export const styles = StyleSheet.create({
   inputSearchStyle: {
     height: 40,
     fontSize: 16,
-    color:theme.colors.black
+    color: theme.colors.black,
   },
   searchbar: {
     marginTop: 10,

@@ -1,4 +1,7 @@
 export const baseLocalEng = {
+  Components: {
+    add: 'Add',
+  },
   IntroPage: {
     mainText: 'Selamat Datang di McDonald',
     subText:
@@ -15,6 +18,10 @@ export const baseLocalEng = {
     signIn: 'Sign In',
     noAccountMsg: "Didn't have an account?",
     signUp: ' Sign Up',
+    validationError: 'Validation Error',
+    emailNotFound: 'Email not found',
+    incorrectPassword: 'Incorrect Password',
+    checkEmailAndPassword: 'Check Email and Password',
   },
   SignUp: {
     signUpMsg: 'Register to continue',
@@ -29,6 +36,10 @@ export const baseLocalEng = {
     signUp: 'Sign Up',
     accountExistMsg: 'Already have an account?',
     signIn: ' Sign In',
+    error: 'Error',
+    accountExistAlertMsg: 'User Already Exists!! Please Login',
+    cancel: 'Cancel',
+    ok: 'OK',
   },
   HomePage: {
     search: 'Search',
@@ -55,12 +66,16 @@ export const baseLocalEng = {
     totalBiaya: 'Total Biaya',
     gratis: 'GRATIS',
     btnText: 'Bayar',
+    orderConfirmationTitle: 'Order Confirmation',
+    orderConfirmationMsg: 'Your order has been successfully placed!',
+    ok: 'OK',
+    noItem: 'No Item in the cart !!!',
   },
-  profilePage:{
-    name:'Name',
-    email:'Email',
-    gender:'Gender',
-    phone:'Phone Number',
-    logout:'Logout'
-  }
+  profilePage: {
+    name: 'Name',
+    email: 'Email',
+    gender: 'Gender',
+    phone: 'Phone Number',
+    logout: 'Logout',
+  },
 };

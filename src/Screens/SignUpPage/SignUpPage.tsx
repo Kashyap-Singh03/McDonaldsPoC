@@ -1,6 +1,7 @@
 import {Formik} from 'formik';
-import React, {useEffect, useRef, useState} from 'react';
+import React, {useRef, useState} from 'react';
 import {
+  Alert,
   Image,
   KeyboardAvoidingView,
   SafeAreaView,
@@ -11,20 +12,18 @@ import {
   View,
 } from 'react-native';
 import {Switch} from 'react-native-paper';
+import {useDispatch, useSelector} from 'react-redux';
 import CustomButton from '../../Components/CustomButton/CustomButton';
 import LabeledInputTextField from '../../Components/LabeledInputTextField/LabeledInputTextField';
 import {UIValidationSchema} from '../../Helper/UIValidationSchema';
 import theme from '../../Theme/theme';
 import {baseLocalEng} from './../../Localization/BaseLocalization';
-import {styles} from './style';
-import {useDispatch, useSelector} from 'react-redux';
 import {signup_request} from './../../Redux/Action';
+import {styles} from './style';
 
 const SignUp = (props: any) => {
   const dispatch = useDispatch();
   const users = useSelector((state: any) => state.reducer.users);
-  // console.log(users + '\n');
-
   const {navigation} = props;
   const [isSwitchOn, setIsSwitchOn] = useState(false);
   const [gender, setGender] = useState('Male');
@@ -45,22 +44,36 @@ const SignUp = (props: any) => {
   const formikRef = useRef();
 
   const onSubmit = (values: any) => {
-    const user = {
-      id: Math.random(),
-      name: values.name,
-      email: values.email,
-      phoneNumber: values.phoneNumber,
-      password: values.password,
-      gender: gender,
-    };
-    dispatch(signup_request(user));
-    navigation.navigate('SignIn');
+    const userExist = users.some((user: any) => user.email === values.email);
+    if (userExist) {
+      Alert.alert(
+        baseLocalEng.SignUp.error,
+        baseLocalEng.SignUp.accountExistAlertMsg,
+        [
+          {
+            text: baseLocalEng.SignUp.cancel,
+          },
+          {
+            text: baseLocalEng.SignUp.ok,
+            onPress: () => {
+              navigation.navigate('SignIn');
+            },
+          },
+        ],
+      );
+    } else {
+      const userData = {
+        id: Math.random(),
+        name: values.name,
+        email: values.email,
+        phoneNumber: values.phoneNumber,
+        password: values.password,
+        gender: gender,
+      };
+      dispatch(signup_request(userData));
+      navigation.navigate('SignIn');
+    }
   };
-
-  useEffect(() => {
-    console.log('Users in the store:', users);
-    // console.log("Is Login ",isLogin);
-  }, [users]);
 
   return (
     <ScrollView

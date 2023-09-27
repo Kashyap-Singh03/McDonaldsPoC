@@ -6,17 +6,17 @@ export const style = StyleSheet.create({
     alignItems: 'center',
   },
   container: {
-    height:60,
+    height: 60,
     paddingVertical: 6,
     paddingHorizontal: 12,
     alignItems: 'center',
-    justifyContent:'center',
+    justifyContent: 'center',
     borderRadius: 30,
     borderWidth: 1,
   },
   text: {
     fontWeight: 'bold',
     color: theme.colors.black,
-    fontSize: theme.fonts.h6.fontSize
+    fontSize: theme.fonts.h6.fontSize,
   },
 });

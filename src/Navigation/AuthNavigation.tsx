@@ -10,9 +10,7 @@ const AuthNavigation = (props: any) => {
     <Stack.Navigator
       screenOptions={{
         headerShown: false,
-      }}
-      //   initialRouteName={newLogin == false ? 'SplashImage' : 'Welcome'}
-    >
+      }}>
       <Stack.Screen
         name={'IntroPage'}
         component={IntroPage}

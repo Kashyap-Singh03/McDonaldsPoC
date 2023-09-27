@@ -1,22 +1,14 @@
-// import auth from '@react-native-firebase/auth';
-import React from 'react';
-// import {useDispatch} from 'react-redux';
-// import {
-//   bookedRideDataRequest,
-//   profileDataRequest,
-//   publishRideDataRequest,
-//   updateIsReceivedRequest,
-// } from '../redux/actions';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import HomePage from '../Screens/HomePage/HomePage';
-import CartPage from '../Screens/CartPage/CartPage';
-import SpecialOfferPage from '../Screens/SpecialOfferPage/SpecialOfferPage';
-import ProfilePage from '../Screens/ProfilePage/ProfilePage';
-import CategoryPage from '../Screens/CategoryPage/CategoryPage';
-import ItemDetailsPage from '../Screens/ItemDetailsPage/ItemDetailsPage';
-import theme from './../Theme/theme';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import React from 'react';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import CartPage from '../Screens/CartPage/CartPage';
+import CategoryPage from '../Screens/CategoryPage/CategoryPage';
+import HomePage from '../Screens/HomePage/HomePage';
+import ItemDetailsPage from '../Screens/ItemDetailsPage/ItemDetailsPage';
+import ProfilePage from '../Screens/ProfilePage/ProfilePage';
+import SpecialOfferPage from '../Screens/SpecialOfferPage/SpecialOfferPage';
+import theme from './../Theme/theme';
 
 const HomeStack = createNativeStackNavigator();
 const CartStack = createNativeStackNavigator();
@@ -44,14 +36,6 @@ const HomeStackScreen = () => {
         component={ItemDetailsPage}
         options={{
           headerTitle: 'Item Details',
-          headerTitleStyle: {color: theme.colors.black},
-        }}
-      />
-      <HomeStack.Screen
-        name="SpecialOfferPage"
-        component={SpecialOfferPage}
-        options={{
-          headerTitle: 'Special Offers',
           headerTitleStyle: {color: theme.colors.black},
         }}
       />
@@ -95,17 +79,6 @@ const ProfileStackScreen = () => {
 };
 
 const AppNavigation = () => {
-  //   const user = auth().currentUser;
-
-  //   const dispatch = useDispatch();
-
-  //   React.useEffect(() => {
-  //     dispatch(profileDataRequest(user?.uid));
-  //     dispatch(publishRideDataRequest(user?.uid));
-  //     dispatch(bookedRideDataRequest(user?.uid));
-  //   }, []);
-
-  // const Tab = createMaterialBottomTabNavigator();
   const Tab = createBottomTabNavigator();
   return (
     <Tab.Navigator
@@ -171,7 +144,6 @@ const AppNavigation = () => {
           ),
           tabBarLabel: '',
           headerShown: false,
-          // headerTitleAlign:'center'
         }}
       />
       <Tab.Screen

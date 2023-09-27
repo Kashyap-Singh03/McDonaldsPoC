@@ -7,12 +7,6 @@ export const styles = StyleSheet.create({
     backgroundColor: 'white',
     padding: 10,
   },
-  // textStyle: {
-  //   color: theme.colors.black,
-  //   fontSize: theme.fonts.h5.fontSize,
-  //   fontWeight: '700',
-  //   marginLeft: 10,
-  // },
   searchContainer: {
     flexDirection: 'row',
     alignItems: 'center',

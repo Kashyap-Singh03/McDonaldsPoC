@@ -1,31 +1,20 @@
-import {View, Text, FlatList} from 'react-native';
-import React, {useEffect, useState} from 'react';
-import CustomCategoryDetails from '../../Components/CustomCategoryDetails/CustomCategoryDetails';
-import {styles} from './style';
-import CategoryDetails from '../../Constants/CategoryDetailsConstants';
+import React from 'react';
+import {FlatList, View} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
+import CustomCategoryDetails from '../../Components/CustomCategoryDetails/CustomCategoryDetails';
+import CategoryDetails from '../../Constants/CategoryDetailsConstants';
 import {add_to_cart_request} from './../../Redux/Action';
+import {styles} from './style';
 const CategoryPage = (props: any) => {
   const {navigation, route} = props;
 
   const dispatch = useDispatch();
   const userId = useSelector((state: any) => state.reducer.currentUser.id);
   const cartItems = useSelector((state: any) => state.reducer.cartItems);
-  // useEffect(() => {
-  //   //@ts-ignore
-  //   CategoryDetails[route?.params?.title].map(item => {
-  //     dispatch(add_to_cart_request(item));
-  //   });
-  // }, []);
-
   const AddItems = (item: any) => {
     dispatch(add_to_cart_request(userId, item));
   };
 
-  useEffect(() => {
-    console.log('cartItems in the store:', cartItems);
-    // console.log("Is Login ",isLogin);
-  }, [cartItems]);
   return (
     <View>
       <FlatList
@@ -47,6 +36,7 @@ const CategoryPage = (props: any) => {
                   name: item.title,
                   description: item.description,
                   price: item.price,
+                  itemDetails: item,
                 });
               }}
             />

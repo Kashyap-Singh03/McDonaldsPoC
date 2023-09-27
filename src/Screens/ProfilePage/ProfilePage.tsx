@@ -2,15 +2,19 @@ import React, {useState} from 'react';
 import {Image, Text, TouchableOpacity, View} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Icon1 from 'react-native-vector-icons/MaterialCommunityIcons';
+import {useDispatch, useSelector} from 'react-redux';
 import {baseLocalEng} from '../../Localization/BaseLocalization';
 import theme from '../../Theme/theme';
+import {logout_request} from './../../Redux/Action';
 import {style} from './style';
-import { useDispatch, useSelector } from 'react-redux';
 const ProfilePage = (props: any) => {
   const {navigation, route} = props;
 
-  const dispatch=useDispatch();
-  const userDetails=useSelector((state:any)=>state.reducer.currentUser)
+  const handleLogout = () => {
+    dispatch(logout_request());
+  };
+  const dispatch = useDispatch();
+  const userDetails = useSelector((state: any) => state.reducer.currentUser);
   const [avatar, setAvatar] = useState(
     'https://cdn.pixabay.com/photo/2017/11/10/05/48/user-2935527_1280.png',
   );
@@ -62,7 +66,7 @@ const ProfilePage = (props: any) => {
           </View>
         </View>
 
-        <TouchableOpacity onPress={() => {}}>
+        <TouchableOpacity onPress={handleLogout}>
           <View style={style.profileBody}>
             <Icon1 name="logout" size={30} color={theme.colors.iconColor} />
             <View style={style.profileSubBody}>

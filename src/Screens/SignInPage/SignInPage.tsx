@@ -1,5 +1,5 @@
-import {Formik} from 'formik';
-import React, {useEffect, useRef} from 'react';
+import { Formik } from 'formik';
+import React, { useRef } from 'react';
 import {
   Alert,
   Image,
@@ -9,22 +9,21 @@ import {
   StatusBar,
   Text,
   TouchableOpacity,
-  View,
+  View
 } from 'react-native';
-import {useDispatch, useSelector} from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import CustomButton from '../../Components/CustomButton/CustomButton';
 import LabeledInputTextField from '../../Components/LabeledInputTextField/LabeledInputTextField';
-import {UIValidationSchema} from '../../Helper/UIValidationSchema';
+import { UIValidationSchema } from '../../Helper/UIValidationSchema';
 import theme from '../../Theme/theme';
-import {baseLocalEng} from './../../Localization/BaseLocalization';
-import {login_request} from './../../Redux/Action';
-import {styles} from './style';
+import { baseLocalEng } from './../../Localization/BaseLocalization';
+import { login_request } from './../../Redux/Action';
+import { styles } from './style';
 
 const SignInPage = (props: any) => {
   const {navigation} = props;
   const dispatch = useDispatch();
   const users = useSelector((state: any) => state.reducer.users);
-  const isLogin = useSelector((state: any) => state.reducer.isLogin);
   const initialValues = {
     email: '',
     password: '',
@@ -35,13 +34,19 @@ const SignInPage = (props: any) => {
     const user = users.find((user: any) => user.email === values.email);
     const userExist = users.some((user: any) => user.email === values.email);
     if (!userExist) {
-      Alert.alert('Validation Error', 'Email not found');
+      Alert.alert(
+        baseLocalEng.SignIn.validationError,
+        baseLocalEng.SignIn.emailNotFound,
+      );
     } else if (userExist && user.password !== values.password) {
-      Alert.alert('Validation Error', 'Incorrect Password');
+      Alert.alert(
+        baseLocalEng.SignIn.validationError,
+        baseLocalEng.SignIn.incorrectPassword,
+      );
     } else if (userExist && user.password === values.password) {
       dispatch(login_request(user));
     } else {
-      Alert.alert('Check Email and Password');
+      Alert.alert(baseLocalEng.SignIn.checkEmailAndPassword);
     }
   };
 
@@ -140,6 +145,3 @@ const SignInPage = (props: any) => {
 };
 
 export default SignInPage;
-function dispatch(arg0: {type: string; payload: any}) {
-  throw new Error('Function not implemented.');
-}

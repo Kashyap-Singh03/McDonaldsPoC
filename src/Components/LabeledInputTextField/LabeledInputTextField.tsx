@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
-import {Text, TextInput, View, TouchableOpacity} from 'react-native';
+import {Text, TextInput, TouchableOpacity, View} from 'react-native';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import theme from '../../Theme/theme';
 import {styles} from './style';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 interface LabeledInputTextFieldProps {
   value: string;

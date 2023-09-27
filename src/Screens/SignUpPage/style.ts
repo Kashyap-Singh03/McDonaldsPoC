@@ -72,4 +72,10 @@ export const styles = StyleSheet.create({
     color: theme.colors.black,
     fontWeight: '400',
   },
+  activityIndicator: {
+    flex: 1,
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+    marginBottom: 16,
+  },
 });

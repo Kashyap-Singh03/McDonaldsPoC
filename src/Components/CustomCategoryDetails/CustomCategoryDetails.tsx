@@ -2,6 +2,7 @@ import React from 'react';
 import {Image, Text, TouchableOpacity, View} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import theme from '../../Theme/theme';
+import {baseLocalEng} from './../../Localization/BaseLocalization';
 import {styles} from './style';
 
 type CustomCategoryDetailsProps = {
@@ -19,7 +20,7 @@ const CustomCategoryDetails = ({
   itemPrice,
   itemDescription,
   onPress,
-  onPressAdd
+  onPressAdd,
 }: CustomCategoryDetailsProps) => {
   return (
     <View style={styles.container}>
@@ -47,7 +48,7 @@ const CustomCategoryDetails = ({
               color: theme.colors.secondary,
               fontSize: theme.fonts.h8.fontSize,
             }}>
-            Add (+)
+            {baseLocalEng.Components.add} (+)
           </Text>
         </TouchableOpacity>
         <TouchableOpacity
@@ -58,9 +59,6 @@ const CustomCategoryDetails = ({
             size={24}
             color={theme.colors.primary}></Icon>
         </TouchableOpacity>
-        {/* <View style={{alignItems:"flex-end"}}>
-          <Text style={styles.textPrice}>Rs {itemPrice}</Text>
-        </View> */}
       </View>
     </View>
   );

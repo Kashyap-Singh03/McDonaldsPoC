@@ -11,6 +11,7 @@ import {Dropdown} from 'react-native-element-dropdown';
 import {Searchbar} from 'react-native-paper';
 import Carousel, {Pagination} from 'react-native-snap-carousel';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import {useDispatch, useSelector} from 'react-redux';
 import CustomCategory from '../../Components/CustomCategory/CustomCategory';
 import CustomSpecialOffer from '../../Components/CustomSpecialOffer/CustomSpecialOffer';
 import {
@@ -19,14 +20,21 @@ import {
   Kategori,
   SpecialOfferData,
 } from '../../Constants/HomePageConstants';
+import {add_to_cart_request} from '../../Redux/Action';
 import {baseLocalEng} from './../../Localization/BaseLocalization';
 import theme from './../../Theme/theme';
 import {styles} from './style';
 
 const HomePage = (props: any) => {
+  const dispatch = useDispatch();
   const {navigation} = props;
+  const userId = useSelector((state: any) => state.reducer.currentUser.id);
   const [activeCarouselIndex, setActiveCarouselIndex] = useState(0);
   const [filteredCategories, setFilteredCategories] = useState(Kategori);
+
+  const addItems = (item: any) => {
+    dispatch(add_to_cart_request(userId, item));
+  };
 
   const filterCategories = (query: any) => {
     const filtered = Kategori.filter(category =>
@@ -129,7 +137,7 @@ const HomePage = (props: any) => {
                 itemImage={item.image}
                 itemTitle={item.title}
                 onPress={() => {
-                  navigation.navigate('CategoryPage',{title:item.title});
+                  navigation.navigate('CategoryPage', {title: item.title});
                 }}></CustomCategory>
             )}
             horizontal
@@ -141,7 +149,10 @@ const HomePage = (props: any) => {
             <Text style={styles.specialOfferTextStyle}>
               {baseLocalEng.HomePage.specialOffer}
             </Text>
-            <TouchableOpacity onPress={() => {navigation.navigate('SpecialOfferPage')}}>
+            <TouchableOpacity
+              onPress={() => {
+                navigation.navigate('Special Offer');
+              }}>
               <Text style={{color: theme.colors.secondary}}>
                 {baseLocalEng.HomePage.SpecialOfferBtn} &gt;
               </Text>
@@ -153,8 +164,9 @@ const HomePage = (props: any) => {
               <View style={styles.specialOfferFlatlistStyle}>
                 <CustomSpecialOffer
                   itemImage={item.image}
-                  itemName={item.name}
+                  itemName={item.title}
                   itemPrice={item.price}
+                  onPress={() => addItems(item)}
                 />
               </View>
             )}

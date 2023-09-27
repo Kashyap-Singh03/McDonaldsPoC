@@ -44,8 +44,8 @@ const reducer = (state = initialState, action: any) => {
       return {
         ...state,
         loading: false,
-        currentUser: null,
         isLogin: action.payload,
+        currentUser: null,
       };
     case 'ADD_TO_CART_REQUEST':
       return {
@@ -55,8 +55,6 @@ const reducer = (state = initialState, action: any) => {
     case 'ADD_TO_CART_SUCCESS':
       let myindex = -1;
       state.cartItems.map((item, index) => {
-        // console.log('ITEM TO ADD : ', item, '\n');
-
         if (
           item.id === action.payload.item.id &&
           item.userId === action.payload.userId

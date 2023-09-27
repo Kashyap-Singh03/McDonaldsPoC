@@ -1,19 +1,28 @@
 import React, {useState} from 'react';
-import {FlatList, Text, TextInput, View} from 'react-native';
+import {FlatList, TextInput, View} from 'react-native';
 import {IconButton} from 'react-native-paper';
+import {useDispatch, useSelector} from 'react-redux';
 import CustomSpecialOffer from '../../Components/CustomSpecialOffer/CustomSpecialOffer';
 import {SpecialOfferPageData} from '../../Constants/HomePageConstants';
+import {add_to_cart_request} from '../../Redux/Action';
 import theme from '../../Theme/theme';
 import {baseLocalEng} from './../../Localization/BaseLocalization';
 import {styles} from './style';
 
 const SpecialOfferPage = () => {
+  const dispatch = useDispatch();
+  const userId = useSelector((state: any) => state.reducer.currentUser.id);
+
   const [filteredOffer, setFilteredOffer] = useState(SpecialOfferPageData);
   const [searchQuery, setSearchQuery] = useState('');
 
+  const addItems = (item: any) => {
+    dispatch(add_to_cart_request(userId, item));
+  };
+
   const filterOffer = (query: any) => {
     const filtered = SpecialOfferPageData.filter(offerName =>
-      offerName.name.toLowerCase().includes(query.toLowerCase()),
+      offerName.title.toLowerCase().includes(query.toLowerCase()),
     );
     setFilteredOffer(filtered);
   };
@@ -40,8 +49,9 @@ const SpecialOfferPage = () => {
           <View style={styles.flatListItem}>
             <CustomSpecialOffer
               itemImage={item.image}
-              itemName={item.name}
+              itemName={item.title}
               itemPrice={item.price}
+              onPress={() => addItems(item)}
             />
           </View>
         )}
