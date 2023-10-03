@@ -16,6 +16,9 @@ export const REMOVE_FROM_CART_FAILURE = 'REMOVE_FROM_CART_FAILURE';
 export const DELETE_CART_ITEM_REQUEST = 'DELETE_CART_ITEM_REQUEST';
 export const DELETE_CART_ITEM_SUCCESS = 'DELETE_CART_ITEM_SUCCESS';
 export const DELETE_CART_ITEM_FAILURE = 'DELETE_CART_ITEM_FAILURE';
+export const PAST_ORDERS_REQUEST = 'PAST_ORDERS_REQUEST';
+export const PAST_ORDERS_SUCCESS = 'PAST_ORDERS_SUCCESS';
+export const PAST_ORDERS_FAILURE = 'PAST_ORDERS_FAILURE';
 
 export const signup_request = (data: any) => ({
   type: SIGNUP_REQUEST,
@@ -103,5 +106,20 @@ export const delete_cart_item_success = (userId: any, item: any) => ({
 
 export const delete_cart_item_failure = (error: any) => ({
   type: DELETE_CART_ITEM_FAILURE,
+  payload: error,
+});
+
+export const past_orders_request = (data: any) => ({
+  type: PAST_ORDERS_REQUEST,
+  payload: data,
+});
+
+export const past_orders_success = (data: any) => ({
+  type: PAST_ORDERS_SUCCESS,
+  payload: data,
+});
+
+export const past_orders_failure = (error: any) => ({
+  type: PAST_ORDERS_FAILURE,
   payload: error,
 });

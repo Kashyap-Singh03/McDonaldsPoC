@@ -13,6 +13,9 @@ import {
   LOGOUT_FAILURE,
   LOGOUT_REQUEST,
   LOGOUT_SUCCESS,
+  PAST_ORDERS_FAILURE,
+  PAST_ORDERS_REQUEST,
+  PAST_ORDERS_SUCCESS,
   REMOVE_FROM_CART_FAILURE,
   REMOVE_FROM_CART_REQUEST,
   REMOVE_FROM_CART_SUCCESS,
@@ -28,6 +31,7 @@ const initialState = {
   currentUser: null,
   cartItems: [],
   error: '',
+  pastOrders: [],
 };
 
 const reducer = (state = initialState, action: any) => {
@@ -174,6 +178,41 @@ const reducer = (state = initialState, action: any) => {
         cartItems: updatedCartItems,
       };
     case DELETE_CART_ITEM_FAILURE:
+      return {
+        ...state,
+        loading: false,
+        error: action.error,
+      };
+    case PAST_ORDERS_REQUEST:
+      return {
+        ...state,
+        loading: true,
+      };
+    case PAST_ORDERS_SUCCESS:
+      const pastCartItems = state.cartItems.filter(
+        item => item.userId === action.payload.userId,
+      );
+      if (pastCartItems.length > 0) {
+        state.pastOrders.unshift([
+          {
+            date: action.payload.date,
+            time: action.payload.time,
+            totalItems: action.payload.totalItems,
+            totalPrice: action.payload.totalPrice,
+          },
+          ...pastCartItems,
+        ]);
+      }
+      const updateCartItems = state.cartItems.filter(
+        item => item.userId !== action.payload.userId,
+      );
+      return {
+        ...state,
+        loading: false,
+        pastOrders: [...state.pastOrders],
+        cartItems: updateCartItems,
+      };
+    case PAST_ORDERS_FAILURE:
       return {
         ...state,
         loading: false,

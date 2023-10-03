@@ -1,16 +1,21 @@
 //@ts-nocheck
 import React, {useEffect, useState} from 'react';
 import {Alert, Image, ScrollView, Text, View} from 'react-native';
-import {useSelector} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import CustomButton from '../../Components/CustomButton/CustomButton';
 import CustomCartEntity from '../../Components/CustomCartEntity/CustomCartEntity';
+import {past_orders_request} from '../../Redux/Action';
 import {baseLocalEng} from './../../Localization/BaseLocalization';
 import {styles} from './style';
-const CartPage = () => {
+const CartPage = (props: any) => {
+  const {navigation} = props;
+  const dispatch = useDispatch();
   const cartItems = useSelector((state: any) => state.reducer.cartItems);
   const userId = useSelector((state: any) => state.reducer.currentUser.id);
   const [totalItems, setTotalItems] = useState(0);
   const [totalPrice, setTotalPrice] = useState(0);
+  const [selectedDate, setSelectedDate] = useState('');
+  const [selectedTime, setSelectedTime] = useState('');
   const [isEmpty, setIsEmpty] = useState(true);
   useEffect(() => {
     let newTotalItems = 0;
@@ -38,6 +43,31 @@ const CartPage = () => {
       setIsEmpty(true);
     }
   }, [cartItems]);
+
+  const handleSubmit = () => {
+    const currentDate = new Date();
+    const d1 = currentDate.toISOString().split('T');
+    const d2 = d1[0].split('-');
+    setSelectedDate(d2[2] + '/' + d2[1] + '/' + d2[0]);
+
+    const currentTime = new Date();
+    const t1 = currentTime.toLocaleTimeString();
+    const t2 = t1.split(' ');
+    const t3 = t2[0].split(':');
+    setSelectedTime(t3[0] + ':' + t3[1] + ' ' + t2[1]);
+
+    if (selectedDate !== '' && selectedTime !== '') {
+      const data = {
+        userId: userId,
+        date: selectedDate,
+        time: selectedTime,
+        totalItems: totalItems,
+        totalPrice: totalPrice,
+      };
+      dispatch(past_orders_request(data));
+      navigation.navigate('Home');
+    }
+  };
 
   return !isEmpty ? (
     <View style={styles.container}>
@@ -93,6 +123,9 @@ const CartPage = () => {
                 [
                   {
                     text: baseLocalEng.cartPage.ok,
+                    onPress: () => {
+                      handleSubmit();
+                    },
                   },
                 ],
               );

@@ -77,5 +77,12 @@ export const baseLocalEng = {
     gender: 'Gender',
     phone: 'Phone Number',
     logout: 'Logout',
+    proflie: 'Profile',
+    previousOrders: 'Previous Orders',
+    date: 'Date',
+    time: 'Time',
+    totalItems: 'Total Items',
+    totalPrice: 'Total Price',
+    itemsOrdered: 'Items Ordered',
   },
 };

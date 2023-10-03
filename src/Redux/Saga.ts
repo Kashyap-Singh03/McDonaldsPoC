@@ -12,6 +12,9 @@ import {
   LOGOUT_FAILURE,
   LOGOUT_REQUEST,
   LOGOUT_SUCCESS,
+  PAST_ORDERS_FAILURE,
+  PAST_ORDERS_REQUEST,
+  PAST_ORDERS_SUCCESS,
   REMOVE_FROM_CART_FAILURE,
   REMOVE_FROM_CART_REQUEST,
   REMOVE_FROM_CART_SUCCESS,
@@ -68,6 +71,14 @@ function* deleteCartItemfn(action: any) {
   }
 }
 
+function* pastOrderfn(action: any) {
+  try {
+    yield put({type: PAST_ORDERS_SUCCESS, payload: action.payload});
+  } catch (error) {
+    yield put({type: PAST_ORDERS_FAILURE, payload: error});
+  }
+}
+
 export function* mainSaga() {
   yield takeLatest(SIGNUP_REQUEST, signupfn);
   yield takeLatest(LOGIN_REQUEST, loginfn);
@@ -75,4 +86,5 @@ export function* mainSaga() {
   yield takeLatest(REMOVE_FROM_CART_REQUEST, removeFromCartfn);
   yield takeLatest(DELETE_CART_ITEM_REQUEST, deleteCartItemfn);
   yield takeLatest(LOGOUT_REQUEST, logoutfn);
+  yield takeLatest(PAST_ORDERS_REQUEST, pastOrderfn);
 }
