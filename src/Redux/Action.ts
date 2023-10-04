@@ -19,6 +19,9 @@ export const DELETE_CART_ITEM_FAILURE = 'DELETE_CART_ITEM_FAILURE';
 export const PAST_ORDERS_REQUEST = 'PAST_ORDERS_REQUEST';
 export const PAST_ORDERS_SUCCESS = 'PAST_ORDERS_SUCCESS';
 export const PAST_ORDERS_FAILURE = 'PAST_ORDERS_FAILURE';
+export const UPDATE_PROFILE_DETAILS_REQUEST = 'UPDATE_PROFILE_DETAILS_REQUEST';
+export const UPDATE_PROFILE_DETAILS_SUCCESS = 'UPDATE_PROFILE_DETAILS_SUCCESS';
+export const UPDATE_PROFILE_DETAILS_FAILURE = 'UPDATE_PROFILE_DETAILS_FAILURE';
 
 export const signup_request = (data: any) => ({
   type: SIGNUP_REQUEST,
@@ -121,5 +124,20 @@ export const past_orders_success = (data: any) => ({
 
 export const past_orders_failure = (error: any) => ({
   type: PAST_ORDERS_FAILURE,
+  payload: error,
+});
+
+export const update_profile_details_request = (data: any) => ({
+  type: UPDATE_PROFILE_DETAILS_REQUEST,
+  payload: data,
+});
+
+export const update_profile_details_success = (data: any) => ({
+  type: UPDATE_PROFILE_DETAILS_SUCCESS,
+  payload: data,
+});
+
+export const update_profile_details_failure = (error: any) => ({
+  type: UPDATE_PROFILE_DETAILS_FAILURE,
   payload: error,
 });

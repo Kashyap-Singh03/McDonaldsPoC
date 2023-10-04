@@ -22,6 +22,9 @@ import {
   SIGNUP_FAILURE,
   SIGNUP_REQUEST,
   SIGNUP_SUCCESS,
+  UPDATE_PROFILE_DETAILS_REQUEST,
+  UPDATE_PROFILE_DETAILS_SUCCESS,
+  UPDATE_PROFILE_DETAILS_FAILURE,
 } from './Action';
 
 const initialState = {
@@ -213,6 +216,36 @@ const reducer = (state = initialState, action: any) => {
         cartItems: updateCartItems,
       };
     case PAST_ORDERS_FAILURE:
+      return {
+        ...state,
+        loading: false,
+        error: action.error,
+      };
+    case UPDATE_PROFILE_DETAILS_REQUEST:
+      return {
+        ...state,
+        loading: true,
+      };
+    case UPDATE_PROFILE_DETAILS_SUCCESS:
+      let startIndex = -1;
+      state.users.map((item, index) => {
+        if (item.id === action.payload.id) {
+          startIndex = index;
+        }
+      });
+      if (startIndex == -1) {
+      } else {
+        state.users[startIndex].name = action.payload.name;
+        state.users[startIndex].phoneNumber = action.payload.phoneNumber;
+        state.currentUser.name = action.payload.name;
+        state.currentUser.phoneNumber = action.payload.phoneNumber;
+      }
+      return {
+        ...state,
+        loading: false,
+        users: [...state.users],
+      };
+    case UPDATE_PROFILE_DETAILS_FAILURE:
       return {
         ...state,
         loading: false,

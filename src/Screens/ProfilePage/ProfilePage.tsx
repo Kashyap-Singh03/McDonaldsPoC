@@ -43,7 +43,7 @@ const ProfilePage = (props: any) => {
           <TouchableOpacity
             style={style.editButton}
             onPress={() => {
-              console.log('1');
+              navigation.navigate('UpdateProfileDetailsPage');
             }}>
             <Icon1
               name="square-edit-outline"

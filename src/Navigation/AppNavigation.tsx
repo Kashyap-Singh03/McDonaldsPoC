@@ -9,6 +9,7 @@ import ItemDetailsPage from '../Screens/ItemDetailsPage/ItemDetailsPage';
 import ProfilePage from '../Screens/ProfilePage/ProfilePage';
 import SpecialOfferPage from '../Screens/SpecialOfferPage/SpecialOfferPage';
 import theme from './../Theme/theme';
+import UpdateProfileDetailsPage from './../Screens/UpdateProfileDetailsPage/UpdateProfileDetailsPage';
 
 const HomeStack = createNativeStackNavigator();
 const CartStack = createNativeStackNavigator();
@@ -73,6 +74,11 @@ const ProfileStackScreen = () => {
         name="ProfilePage"
         component={ProfilePage}
         options={{headerShown: false}}
+      />
+      <ProfileStack.Screen
+        name="UpdateProfileDetailsPage"
+        component={UpdateProfileDetailsPage}
+        options={{headerTitle: 'Update Details'}}
       />
     </ProfileStack.Navigator>
   );

@@ -85,4 +85,11 @@ export const baseLocalEng = {
     totalPrice: 'Total Price',
     itemsOrdered: 'Items Ordered',
   },
+  updateProfileDetailsPage: {
+    error: 'Error',
+    nameRequired: 'Name is required',
+    phoneRequired: 'Phone number is required',
+    validPhone: 'Please enter a valid phone number',
+    update: 'Update',
+  },
 };

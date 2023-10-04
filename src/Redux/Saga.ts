@@ -21,6 +21,9 @@ import {
   SIGNUP_FAILURE,
   SIGNUP_REQUEST,
   SIGNUP_SUCCESS,
+  UPDATE_PROFILE_DETAILS_FAILURE,
+  UPDATE_PROFILE_DETAILS_REQUEST,
+  UPDATE_PROFILE_DETAILS_SUCCESS,
 } from './Action';
 
 function* signupfn(action: any) {
@@ -79,6 +82,14 @@ function* pastOrderfn(action: any) {
   }
 }
 
+function* updateProfileDetailsfn(action: any) {
+  try {
+    yield put({type: UPDATE_PROFILE_DETAILS_SUCCESS, payload: action.payload});
+  } catch (error) {
+    yield put({type: UPDATE_PROFILE_DETAILS_FAILURE, payload: error});
+  }
+}
+
 export function* mainSaga() {
   yield takeLatest(SIGNUP_REQUEST, signupfn);
   yield takeLatest(LOGIN_REQUEST, loginfn);
@@ -87,4 +98,5 @@ export function* mainSaga() {
   yield takeLatest(DELETE_CART_ITEM_REQUEST, deleteCartItemfn);
   yield takeLatest(LOGOUT_REQUEST, logoutfn);
   yield takeLatest(PAST_ORDERS_REQUEST, pastOrderfn);
+  yield takeLatest(UPDATE_PROFILE_DETAILS_REQUEST, updateProfileDetailsfn);
 }

@@ -117,18 +117,7 @@ const CartPage = (props: any) => {
             text={baseLocalEng.cartPage.btnText}
             disabled={false}
             onPress={() => {
-              Alert.alert(
-                baseLocalEng.cartPage.orderConfirmationTitle,
-                baseLocalEng.cartPage.orderConfirmationMsg,
-                [
-                  {
-                    text: baseLocalEng.cartPage.ok,
-                    onPress: () => {
-                      handleSubmit();
-                    },
-                  },
-                ],
-              );
+              handleSubmit();
             }}></CustomButton>
         </View>
         <View style={styles.dummyView}></View>
