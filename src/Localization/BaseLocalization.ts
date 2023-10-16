@@ -84,6 +84,10 @@ export const baseLocalEng = {
     totalItems: 'Total Items',
     totalPrice: 'Total Price',
     itemsOrdered: 'Items Ordered',
+    changeProfilePicture: 'Change Profile Picture',
+    chooseOption: 'Choose an option',
+    camera: 'Camera',
+    gallery: 'Gallery',
   },
   updateProfileDetailsPage: {
     error: 'Error',

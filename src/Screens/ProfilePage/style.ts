@@ -71,11 +71,9 @@ export const style = StyleSheet.create({
     marginBottom: 20,
   },
   image: {
-    borderColor: theme.colors.black,
     borderRadius: 85,
     borderWidth: 3,
     height: 170,
-    marginBottom: 15,
     width: 170,
   },
   profilePictureText: {
@@ -107,5 +105,50 @@ export const style = StyleSheet.create({
   },
   textColorStyle: {
     color: theme.colors.black,
+  },
+  changeProfileBtn: {
+    alignItems: 'center',
+  },
+  changeProfileText: {
+    color: theme.colors.black,
+    fontSize: 16,
+    fontWeight: '500',
+  },
+  modalContainer: {
+    backgroundColor: 'white',
+    padding: 20,
+    width: '80%',
+    alignSelf: 'center',
+    borderRadius: 10,
+  },
+  modalTitle: {
+    alignSelf: 'center',
+    fontSize: 20,
+    color: theme.colors.black,
+    marginBottom: 20,
+  },
+  modalView: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+  },
+  modalCamerabtn: {
+    backgroundColor: theme.colors.primary,
+    padding: 10,
+    borderRadius: 5,
+    flex: 1,
+    alignItems: 'center',
+    margin: 5,
+  },
+  modalBtnText: {
+    color: 'white',
+    fontWeight: 'bold',
+  },
+  modalGallerybtn: {
+    backgroundColor: theme.colors.primary,
+    padding: 10,
+    borderRadius: 5,
+    flex: 1,
+    alignItems: 'center',
+    margin: 5,
   },
 });
